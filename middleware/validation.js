@@ -60,11 +60,17 @@ const jediSchema = {
         },
     },
     height: {
-        isNumeric: { errorMessage: "id is not a number" },
+        isNumeric: { errorMessage: "height is not a number" },
         toFloat: true,
-        isFloat: {min: 10, max: 300, errorMessage: "height is not in range"},
-
+        isFloat: {
+            options: { min: 10, max: 300 },
+            errorMessage: "height is not in range",
+        },
         errorMessage: "error in height parameter",
+    },
+    mass: {
+        isNumeric: { errorMessage: "mass is not a number" },
+        isInt: { options: { min: 10 }, errorMessage: "mass is not in range" },
     },
 };
 

@@ -10,7 +10,7 @@ content-type: application/json
 {
         "id": 6,
         "name": "avi one kanub",
-        "height": 1.78,
+        "height": "1.78",
         "mass": "79",
         "hair_color": "strong blue",
         "skin_color": "olive - green",
@@ -28,7 +28,7 @@ content-type: application/json
 {
     "id": 6,
     "name": "avi one kanub",
-    "height": "1.78",
+    "height": "10.78",
     "mass": "79",
     "hair_color": "strong blue",
     "skin_color": "olive - green",
