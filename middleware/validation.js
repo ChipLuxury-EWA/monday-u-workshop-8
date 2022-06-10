@@ -1,10 +1,13 @@
-const {body, validationResult, checkSchema} = require('express-validator');
+const { body, validationResult, checkSchema } = require("express-validator");
 
 function validate() {
     return [
-        body('id', 'id not valid number').exists().isNumeric(),
-        body('name', 'name dosn`t not exists or invalid').exists().isString().escape(),
-        body('gender', 'password doesn\'t exists').isIn(['male', 'female']),
+        body("id", "id not valid number").exists().isNumeric(),
+        body("name", "name dosn`t not exists or invalid")
+            .exists()
+            .isString()
+            .escape(),
+        body("gender", "password doesn't exists").isIn(["male", "female"]),
         (req, res, next) => {
             try {
                 validationResult(req).throw();
@@ -13,10 +16,10 @@ function validate() {
                 console.log(err);
                 res.status(400).json({
                     status: 400,
-                    error: err.errors.map(value => value.msg).join()
+                    error: err.errors.map((value) => value.msg).join(),
                 });
             }
-        }
+        },
     ];
 }
 
@@ -29,7 +32,12 @@ function validateSchema(schema) {
             next();
             return;
         }
-        const error = Error(result.array().map(value => value.msg).join());
+        const error = Error(
+            result
+                .array()
+                .map((value) => value.msg)
+                .join()
+        );
         error.statusCode = 400;
         next(error);
     };
@@ -39,21 +47,28 @@ function validateSchema(schema) {
 const jediSchema = {
     id: {
         isInt: true,
-        errorMessage: 'ID is wrong',
-        in: ['body']
+        errorMessage: "ID is wrong",
+        in: ["body"],
     },
     name: {
         isString: {
-            errorMessage: "Name is wrong"
+            errorMessage: "Name is wrong",
         },
         isLength: {
-            errorMessage: 'Name should be 4 chars long',
+            errorMessage: "Name should be 4 chars long",
             options: { min: 4 },
-        }
-    }
+        },
+    },
+    height: {
+        isNumeric: { errorMessage: "id is not a number" },
+        toFloat: true,
+        isFloat: {min: 10, max: 300, errorMessage: "height is not in range"},
+
+        errorMessage: "error in height parameter",
+    },
 };
 
 module.exports = {
     validateSchema,
-    jediSchema
+    jediSchema,
 };
