@@ -43,7 +43,7 @@ function validateSchema(schema) {
     };
 }
 
-//TODO 5: Add missing fields
+//TODO5: DONE - Add missing fields
 const jediSchema = {
     id: {
         isInt: true,

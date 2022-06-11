@@ -1,4 +1,12 @@
-GET http://localhost:8080/jedi/asdasd HTTP/1.1
+
+###
+GET http://localhost:8080/jedi HTTP/1.1
+Authorization: Bearer may_the_force_be_with_you
+
+###
+GET http://localhost:8080/jedi HTTP/1.1
+Authorization: Bearer may_the_dark_be_with_you
+
 ###
 GET http://localhost:8080/jedi/6 HTTP/1.1
 ###
@@ -23,6 +31,26 @@ DELETE http://localhost:8080/jedi/asd HTTP/1.1
 ###
 
 POST http://localhost:8080/jedi HTTP/1.1
+content-type: application/json
+
+{
+    "id": 6,
+    "name": "avi one kanub",
+    "height": 10.78,
+    "mass": "79",
+    "hair_color": "strong blue",
+    "skin_color": "olive - green",
+    "eye_color": "brown",
+    "birth_year": "Alef beHasvan",
+    "gender": "super-male"
+}
+
+
+###
+
+
+
+PUT http://localhost:8080/jedi/1 HTTP/1.1
 content-type: application/json
 
 {
