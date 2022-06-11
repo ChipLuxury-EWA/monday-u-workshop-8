@@ -15,7 +15,7 @@ const jediRouter = express.Router();
 jediRouter.get('/', getAll);
 jediRouter.get('/:id', getJedi);
 jediRouter.post('/', validateSchema(jediSchema), createJedi);
-jediRouter.put('/:id', replaceJedi);
+jediRouter.put('/:id',validateSchema(jediSchema), replaceJedi);
 jediRouter.delete('/:id', deleteJedi);
 
 module.exports = jediRouter;
