@@ -17,9 +17,9 @@ function checkMid(req, res, next) {
 //TODO 6: DONE - Add validation schema in proper request
 //TODO 8 Add auth middleware to all routes
 jediRouter.get("/", checkAuth, getAll);
-jediRouter.get("/:id", getJedi);
-jediRouter.post("/", validateSchema(jediSchema), createJedi);
-jediRouter.put("/:id", validateSchema(jediSchema), replaceJedi);
-jediRouter.delete("/:id", deleteJedi);
+jediRouter.get("/:id", checkAuth, getJedi);
+jediRouter.post("/", checkAuth, validateSchema(jediSchema), createJedi);
+jediRouter.put("/:id", checkAuth, validateSchema(jediSchema), replaceJedi);
+jediRouter.delete("/:id", checkAuth, deleteJedi);
 
 module.exports = jediRouter;

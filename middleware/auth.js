@@ -1,4 +1,4 @@
-// TODO 7: Add auth middleware
+// TODO 7:DONE Add auth middleware
 // check to see ig the header han an Authorization Bearer may_the_force_be_with_you
 
 function checkMidFromAuth(req, res, next) {
