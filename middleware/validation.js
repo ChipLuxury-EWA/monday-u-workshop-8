@@ -67,10 +67,31 @@ const jediSchema = {
             errorMessage: "height is not in range",
         },
         errorMessage: "error in height parameter",
+        in: ["body"],
     },
     mass: {
         isNumeric: { errorMessage: "mass is not a number" },
         isInt: { options: { min: 10 }, errorMessage: "mass is not in range" },
+        in: ["body"],
+    },
+    hair_color: {
+        isString: {errorMessage: "hair color is not a string"},
+        isLength: {options: {min:3}, errorMessage: "hair color should be more then 3 string"}
+    },
+    skin_color: {
+        isString: {errorMessage: "hair color is not a string"},
+        isLength: {options: {min:3}, errorMessage: "hair color should be more then 3 string"}
+    },
+    birth_year: {
+        isString: {errorMessage: "hair color is not a string"},
+        isLength: {options: {min:4}, errorMessage: "hair color should be more then 4 string"}
+    },
+    eye_color: {
+        isString: {errorMessage: "hair color is not a string"},
+        isLength: {options: {min:4}, errorMessage: "hair color should be more then 4 string"}
+    },
+    gender: {
+        isString: {errorMessage: "gender is not a string"},
     },
 };
 
